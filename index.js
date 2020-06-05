@@ -84,6 +84,27 @@ d3.json(url, function(error, data){
   attr('y', -44).
   style('font-size', 18).
   text('Time in Minutes');
+
+  svg.selectAll(".dot").
+  data(data).
+  enter().append("circle").
+  attr("class", "dot").
+  attr("r", 6).
+  attr("cx", function (d) {
+    return x(d.Year);
+  }).
+  attr("cy", function (d) {
+    return y(d.Time);
+  }).
+  attr("data-xvalue", function (d) {
+    return d.Year;
+  }).
+  attr("data-yvalue", function (d) {
+    return d.Time.toISOString();
+  }).
+  style("fill", function (d) {
+    return color(d.Doping != "");
+  }).
         
 
 })

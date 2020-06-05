@@ -141,5 +141,23 @@ d3.json(url, function(error, data){
   attr("transform", function (d, i) {
     return "translate(0," + (height / 2 - i * 20) + ")";
   });
+  legend.append("rect").
+  attr("x", width - 18).
+  attr("width", 18).
+  attr("height", 18).
+  style("fill", color);
+
+  legend.append("text").
+  attr("x", width - 24).
+  attr("y", 9).
+  attr("dy", ".35em").
+  style("text-anchor", "end").
+  text(function (d) {
+    if (d) return "Riders with doping allegations";else
+    {
+      return "No doping allegations";
+    };
+  });
+
 
 })

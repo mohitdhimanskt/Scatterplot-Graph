@@ -23,4 +23,9 @@ var margin = {
 
   var yAxis = d3.axisLeft(y).tickFormat(timeFormat);
 
-  
+  var div = d3.select("body").append("div")
+  attr("class","tooltip").
+    attr("id","tooltip").
+    style("opacity",0);
+
+    

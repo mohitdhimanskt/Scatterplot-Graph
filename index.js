@@ -34,3 +34,23 @@ attr("height", height + margin.top + margin.bottom).
 attr("class", "graph").
 append("g").
 attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var parsedTime;
+
+d3.json(url, function(error, data){
+    if(error)throw error;
+    data.forEach(function (d){
+        d.Place = +d.Place;
+        var parsedTime = d.Time.split(':');
+        d.Time = new Date(1970, 0, 1, 0, parsedTime[0], parsedTime[1]);
+    });
+    x.domain([d3.min(data, function (d){
+        return d.year -1;
+    }),
+    d3.max(data, function (d){
+        return d.year + 1;
+    })]);
+    y.domain(d3.extend(data, function (d){
+        return d.Time;
+    }))
+})

@@ -52,5 +52,19 @@ d3.json(url, function(error, data){
     })]);
     y.domain(d3.extend(data, function (d){
         return d.Time;
-    }))
+    }));
+
+    svg.append('g').
+    attr("class", "x-axis").
+    attr("id", "x-axis").
+    attr("transform","translate(0," + height + ")").
+    call(xAxis).
+    append("text").
+    attr("class", "x-axis-label").
+    attr("x", width).
+    attr("y", -6).
+    style("text-anchor", "end").
+    text("Year");
+
+
 })

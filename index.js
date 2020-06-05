@@ -15,3 +15,12 @@ var margin = {
 
   var y = d3.scaleTime().
   range([0,height]);
+
+  var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+  var timeFormat = d3.timeFormat("%M:%S");
+  var xAxis = d3.axisBottom(x).tickFormat(d3.format("d"));
+
+  var yAxis = d3.axisLeft(y).tickFormat(timeFormat);
+
+  

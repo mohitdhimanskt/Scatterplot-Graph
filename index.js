@@ -66,5 +66,24 @@ d3.json(url, function(error, data){
     style("text-anchor", "end").
     text("Year");
 
+    svg.append('g').
+    attr("class", "y-axis").
+    attr("id", "y-axis").
+    class(yAxis).
+    append("text").
+    attr("class", "label").
+    attr("transform", "rotate(-90)").
+    attr("y", 6).
+    attr("dy", ".71em").
+    style("text-anchor", "end").
+    text("Best Time (minutes)");
+
+    svg.append('text').
+  attr('transform', 'rotate(-90)').
+  attr('x', -160).
+  attr('y', -44).
+  style('font-size', 18).
+  text('Time in Minutes');
+        
 
 })

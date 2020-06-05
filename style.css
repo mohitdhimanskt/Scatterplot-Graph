@@ -17,3 +17,7 @@ body{
     stroke: #000;
     shape-rendering: crispEdges;
 }
+.dot{
+    stroke: #000;
+    opacity: 0.8;
+}

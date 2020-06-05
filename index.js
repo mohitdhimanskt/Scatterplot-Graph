@@ -131,6 +131,15 @@ d3.json(url, function(error, data){
   attr("text-anchor", "middle").
   style("font-size", "20px").
   text("35 Fastest times up Alpe d'Huez");
+  var legendContainer = svg.append("g").
+  attr("id", "legend");
 
+  var legend = legendContainer.selectAll("#legend").
+  data(color.domain()).
+  enter().append("g").
+  attr("class", "legend-label").
+  attr("transform", function (d, i) {
+    return "translate(0," + (height / 2 - i * 20) + ")";
+  });
 
 })

@@ -28,4 +28,9 @@ var margin = {
     attr("id","tooltip").
     style("opacity",0);
 
-    
+    var svg = d3.select("body").append("svg").
+    attr("width", width + margin.left + margin.right).
+attr("height", height + margin.top + margin.bottom).
+attr("class", "graph").
+append("g").
+attr("transform", "translate(" + margin.left + "," + margin.top + ")");

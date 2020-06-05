@@ -117,6 +117,12 @@ d3.json(url, function(error, data){
   on("mouseout", function (d) {
     div.style("opacity", 0);
   });
-        
+  svg.append("text").
+  attr("id", "title").
+  attr("x", width / 2).
+  attr("y", 0 - margin.top / 2).
+  attr("text-anchor", "middle").
+  style("font-size", "30px").
+  text("Doping in Professional Bicycle Racing");   
 
 })

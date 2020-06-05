@@ -105,6 +105,18 @@ d3.json(url, function(error, data){
   style("fill", function (d) {
     return color(d.Doping != "");
   }).
+  on("mouseover", function (d) {
+    div.style("opacity", .9);
+    div.attr("data-year", d.Year);
+    div.html(d.Name + ": " + d.Nationality + "<br/>" +
+    "Year: " + d.Year + ", Time: " + timeFormat(d.Time) + (
+    d.Doping ? "<br/><br/>" + d.Doping : "")).
+    style("left", d3.event.pageX + "px").
+    style("top", d3.event.pageY - 28 + "px");
+  }).
+  on("mouseout", function (d) {
+    div.style("opacity", 0);
+  });
         
 
 })
